@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+</style>
+</head>
+
+<body class="w3-light-grey">
+<!--title code-->
+</body>
+      <header class="w3-container w3-center w3-padding-48 w3-white">
+     <h1 class="display-1" style="font-size: 90px; font: 'Open Sans'"><b> Contact Us </b></h1>
+<br>
+<br>
+    <h5 class="lead" style="color: rgb(191, 172, 181)">
+Do you have any questions for us?
+</h5>
+      </header>
+<br><br>
+
+<!--end title part-->
+
+
+<!--start contact form-->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+<div class="row" id="contatti">
+<div class="container mt-5" >
+
+    <div class="row" style="height:550px;">
+      <div class="col-md-6 maps" >
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.6639034327127!2d-0.21001688366147056!3d51.519381817647485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876101ec577e7dd%3A0x844f4d3d14997980!2sLisa&#39;s!5e0!3m2!1sen!2suk!4v1652006169221!5m2!1sen!2suk" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-uppercase mt-3 font-weight-bold text-black">Conact Us</h2>
+        <form action="">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="text" class="form-control mt-2" placeholder="First name" required>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="text" class="form-control mt-2" placeholder="Last name" required>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="email" class="form-control mt-2" placeholder="Email" required>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <input type="number" class="form-control mt-2" placeholder="Telephone" required>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Insert text" rows="3" required></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Accept terms and conditions
+                </label>
+              </div>
+            </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-light" type="submit">SEND</button>
+            </div>
+          </div>
+        </form>
+        <div class="text-black">
+        <h2 class="text-uppercase mt-4 font-weight-bold">Contact Details</h2>
+
+        <i class="fas fa-phone mt-3"></i> <a href="tel:+">+44 0373 7474 37</a><br>
+        <i class="fas fa-phone mt-3"></i> <a href="tel:+">+44 626 6474 2727</a><br>
+        <i class="fa fa-envelope mt-3"></i> <a href="">LISA@lisainfo.com</a><br>
+        <i class="fas fa-globe mt-3"></i> 123 LISA street, London, UK<br>
+<!--        <i class="fas fa-globe mt-3"></i> Piazza del Colosseo, 1, 00184 Roma<br>-->
+        <div class="my-4">
+<!--        <a href=""><i class="fab fa-facebook fa-3x pr-4"></i></a>-->
+<!--        <a href=""><i class="fab fa-linkedin fa-3x"></i></a>-->
+        </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+</div>
+<br>
+<br>
+
+<!--<div class="row text-center bg-success text-white" id="author">-->
+<!--  <div class="col-12 mt-4 h3 ">-->
+<!--  <a href="#">by P. Fattoruso</a>-->
+<!--</div>-->
+<!--<div class="col-12 my-2">-->
+<!--<a href="https://www.linkedin.com/in/paolofattoruso/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>-->
+<!--</div>-->
+<!--</div>-->
+
+
+{% endblock %}

@@ -1,0 +1,211 @@
+<!--Change below from pages.html to base.html to see the difference. The different nav bar may be the reason why-->
+{% extends "base.html" %}
+{% block title %}Places to Eat{% endblock %}
+
+
+
+{% block content %}
+<!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
+
+
+<!--code showing on website atm: -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+</style>
+</head>
+
+<body class="w3-light-grey">
+<!--title code-->
+</body>
+
+<!--title code-->
+    <header class="w3-container w3-center w3-padding-48 w3-white">
+     <h1 class="display-1" style="font-size: 90px; font: 'Open Sans'"> Places to Eat </h1>
+<br>
+    <h5 class="lead" style="color: rgb(191, 172, 181)">
+With plenty of places to eat in Sky Osterley campus itself, you'd be surprised we're recommending restaurants outside of there. However, Osterley and it's surrounding areas have plenty to offer.
+        <br>
+        From delicious restaurants, cosy cafes and tempting dessert parlours, there's an option for everyone. So get your lunch at Sky's The Dining Room, but for post work food, explore one of the recommendations below for something new.
+</h5>
+      </header>
+<br>
+
+
+<!--<body>-->
+<!--<br>-->
+<!--<br>-->
+<!--<div class="container-fluid">-->
+<!-- <div class="text-center">-->
+<!--     <div class="display-1"<h1><b>Places to eat</b></h1>-->
+<!--</div>-->
+<!--<br>-->
+<!--&lt;!&ndash;intro info code&ndash;&gt;-->
+<!--<br>-->
+<!--    <p class="lead">-->
+<!--With plenty of places to eat in Sky Osterley campus itself, you'd be surprised we're recommending restaurants outside of there. However, Osterley and it's surrounding areas have plenty to offer. From delicious restaurants, cosy cafes and tempting dessert parlours, there's an option for everyone. So get your lunch at Sky's The Dining Room, but for post work food, explore one of the recommendations below for something new.-->
+<!--</p>-->
+
+    <br>
+    <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Feeling Hungry? </h1>
+          <p class="lead text-muted"> Below are some of our top recommendations of where to eat around Osterly Campus. If you know somewhere good recommend below</p>
+          <p>
+            <a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2">Recommend here</a>
+              <a href="https://www.google.co.uk/maps" class="btn btn-secondary my-2"> How to get there? </a>
+          </p>
+        </div>
+      </section>
+    </body>
+
+<!--    New layout with margins on the card deck-->
+
+    <div class="container-fluid">
+        <div class="card-deck">
+
+            <!--                   Card 1 using jinja templating-->
+<div>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        {% for item in restaurants %}
+                <div id={item.id} class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/'+item.restaurant_image) }} " alt="{{ item.restaurant_name }}">
+<!--                    <img class="card-img-top" src="static/images/{item.restaurant_image}" alt="Tree">-->
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.restaurant_name }}</h5>
+                        <a class="btn btn-primary" href="{{item.restaurant_website}}"  role="button">Click Here</a>
+                      <p class="card-text">{{item.restaurant_description}}</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{item.restaurant_cuisine_type}}</li>
+                        <li class="list-group-item">{{item.restaurant_dietary_options}}</li>
+                        <li class="list-group-item">{{item.restaurant_location}}</li>
+                        <li class="list-group-item">{{item.restaurant_affordablity}}</li>
+                      </ul>
+                    </div>
+                </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+            <!--CAN DELETE BELOW AFTER LAYOUT FOR ABOVE WORKS -->
+
+
+<!--&lt;!&ndash;&lt;!&ndash;            OLD CODE FOR CARD 1: &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                   Card 1 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class ="card">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <a class="btn btn-primary" href={restaurants.restaurant_website} role="button">Click Here</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        {% for restaurant in restaurants %}&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h5 class="card-title">{{restaurant.restaurant_name}}</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p class="card-text">{{restaurant.restaurant_description}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <ul class="list-group list-group-flush">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li class="list-group-item">{{restaurant.restaurant_cuisine_type}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li class="list-group-item">{{restaurant.restaurant_dietary_options}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li class="list-group-item">{{restaurant.restaurant_location}} </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li class="list-group-item">{{restaurant.restaurant_affordablity}} </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                         {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;       Card 2 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">jdjdjdjd</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;        Card 3 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;            Second container for the cards &ndash;&gt;-->
+<!--    <br>-->
+<!--    <br>-->
+<!--        <div class="container-fluid">-->
+<!--        <div class="card-deck">-->
+<!--&lt;!&ndash;    Card 4 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;Card 5 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;Card 6 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+{% endblock %}

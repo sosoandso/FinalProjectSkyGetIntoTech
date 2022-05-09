@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}Explore Outdoors{% endblock %}
+
+{% block content %}
+<!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
+<head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<style>
+      .card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+    row-count:3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+    row-count:3;
+  }
+
+.row{
+row-count:3;
+}
+
+</style>
+
+<section>
+<!--<h2> INTO THE CITY CENTRE table example!</h2>-->
+
+
+<!--title code-->
+
+<br>
+<br>
+<div class="container-fluid">
+ <div class="text-center">
+     <div class="display-1"<h1>Explore Outdoors</h1>
+</div>
+<br>
+<!--intro info code-->
+<br>
+    <p class="lead">
+Whether you're wth your family, colleagues or on your own, getting outdoors after work is great for getting fresh air and going for a walk. Well you're in luck! There are plenty of beautiful parks and outdoor activities to pick from the selection below. </p>
+
+<br>
+    <br>
+    <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Feeling Adventurous? </h1>
+          <p class="lead text-muted"> Below are some of our top recommendations of where to explore around Osterly Campus. If you know somewhere good recommend below</p>
+          <p>
+            <a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2">Recommend here</a>
+              <a href="https://www.google.co.uk/maps" class="btn btn-secondary my-2"> How to get there? </a>
+          </p>
+        </div>
+      </section>
+
+
+
+<!--    New layout with margins on the card deck-->
+<!--    <div class="container-fluid" >-->
+<!--        <div class="card-deck">-->
+
+<!--       Card 1 -->
+<div>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+
+    {% for item in outdoors %}
+<!--        <div class="row">-->
+<!--            <div class="card-columns">-->
+<!--             <div class="row row-cols-1 row-cols-md-2 g-4">-->
+<!--             <div class="col">-->
+<!--    <div class="card">-->
+    <div class="container">
+        <div class="row">
+            <div class="col w-100">
+<!--    <div class="container">-->
+<!--        <div class="row-sm">-->
+<!--             <div class="col-sm">-->
+                 <div id={item.id} class="card">
+                    <img class="card-img-top" class="responsive opacity" src="{{ url_for('static', filename='images/'+item.outdoor_image) }} " alt="{{ item.outdoor_name }}">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.outdoor_name }}</h5>
+                        <a class="btn btn-primary" href="{{ item.outdoor_website }}" role="button">Click Here</a>
+                      <p class="card-text">{{ item.outdoor_descriptions }}</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{item.outdoor_affordability}}</li>
+                        <li class="list-group-item">{{item.outdoor_address}}</li>
+                        <li class="list-group-item">{{item.outdoor_discount}}</li>
+                      </ul>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+     {% endfor %}
+    {% endif %}
+
+        </div>
+<!--</div>-->
+<!--        </div>-->
+</section>
+
+
+
+<!--CAN DELETE BELOW AFTER LAYOUT WORKS -->
+<!--&lt;!&ndash;        Card 3 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/huge tree.jpeg" alt="Tree">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;            Second container for the cards &ndash;&gt;-->
+<!--    <br>-->
+<!--    <br>-->
+<!--        <div class="container-fluid">-->
+<!--        <div class="card-deck">-->
+<!--&lt;!&ndash;    Card 4 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/huge tree.jpeg" alt="Tree">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;Card 5 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/huge tree.jpeg" alt="Tree">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;Card 6 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/huge tree.jpeg" alt="Tree">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+
+{% endblock %}

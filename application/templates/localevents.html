@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Local Events{% endblock %}
+
+{% block content %}
+<!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
+
+<br>
+<br>
+<div class="container-fluid">
+ <div class="text-center">
+     <div class="display-1"<h1>Local Events</h1>
+</div>
+<br>
+<!--intro info code-->
+<br>
+    <p class="lead">
+We love supporting the local area and what better way than to advertise local events, festivals and concerts around the Sky Osterley campus. Check the date to make sure you can make it and then go onto the website to book your tickets!
+</p>
+
+    <br>
+
+<br>
+    <br>
+    <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading"> Want to try something different ? </h1>
+          <p class="lead text-muted"> Below are upcoming events around campus. If you know something fun coming up recommend below</p>
+          <p>
+            <a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2">Recommend here</a>
+              <a href="https://www.google.co.uk/maps" class="btn btn-secondary my-2"> How to get there? </a>
+          </p>
+        </div>
+      </section>
+
+<!--    Explaination of the page  -->
+    <div class="container-fluid bg-1 text-center">
+        <p> Below are the highlighted upcmong events!
+        And the calender for the events for the year around Osterly ! </p>
+
+<!--    Cards for events this month -->
+<div class="container-fluid">
+        <div class="card-deck">
+<!--                   Card 1 using jinja templating-->
+<div>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        {% for item in localevents %}
+                <div id={item.id} class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/'+item.event_image) }} " alt="{{ item.event_name }}">
+<!--                    <img class="card-img-top" src="static/images/{item.outdoor_image}" alt="Tree">-->
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.event_name }}</h5>
+                        <a class="btn btn-primary" href="{{item.event_website}}" role="button">Click Here</a>
+                      <p class="card-text"></p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ item.event_category }}</li>
+                        <li class="list-group-item">Starts {{ item.event_start_date }} & Ends: {{ item.event_end_date }}</li>
+                        <li class="list-group-item">{{item.event_location}}</li>
+                        <li class="list-group-item">££ {{item.event_discount}}</li>
+                      </ul>
+                    </div>
+                </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+                        <!--CAN DELETE BELOW AFTER LAYOUT FOR ABOVE WORKS (KEEPING CALENDAR)-->
+
+<!--&lt;!&ndash;       Card 2 &ndash;&gt;-->
+<!--                <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;            Card 3&ndash;&gt;-->
+<!--             <div class="card">-->
+<!--                    <img class="card-img-top" src="static/images/tigerlily.jpeg" alt="Tiger Lily Restaurant">-->
+<!--                    <div class="card-body">-->
+<!--                      <h5 class="card-title">Tiger Lily</h5>-->
+<!--                        <a class="btn btn-primary" href="https://www.tigerlilyofosterley.co.uk/" role="button">Click Here</a>-->
+<!--                      <p class="card-text">Delicious authentic Thai cuisine with a bar. A peaceful elegant restaurant with bamboo outdoor terrance.</p>-->
+<!--                      <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">Thai</li>-->
+<!--                        <li class="list-group-item">Vegetarian options available</li>-->
+<!--                        <li class="list-group-item">Osterley</li>-->
+<!--                        <li class="list-group-item">££</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+
+
+
+
+
+     <!-- Calendar -->
+        <br>
+        <br>
+    <div class="container-fluid">
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23D81B60&ctz=Europe%2FLondon&showPrint=0&showTabs=0&src=bmhzM3A2ZTdrajlwaGthdWF2YmZidWM0NGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4udWsjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161&color=%23F4511E" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+
+{% endblock %}

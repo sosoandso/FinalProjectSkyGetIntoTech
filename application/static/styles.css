@@ -1,0 +1,94 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@500&family=Quintessential&display=swap');
+</style>
+
+font-family: 'Libre Baskerville', serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Quintessential', cursive;
+
+body { min-height: 100vh; }
+
+html,body {
+  height:100%;
+  min-height:100%;
+  max-height:100%;
+}
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+}
+
+
+
+.banner {
+  background: #fff;
+  font-family: Lato, sans-serif;
+}
+.navbar-nav-primary {
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-form-search {
+  position: relative;
+  .form-control {
+    width: 250px;
+  }
+  .btn {
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    &:active,
+    &:hover,
+    &:focus {
+      color: #000;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .search-form-container {
+    text-align: right;
+    position: absolute;
+    width: 300px;
+    overflow: hidden;
+    background: #fff;
+    right: 60px;
+    top: 0;
+    z-index: 9;
+    transition: all .3s ease-in-out;
+    &.hdn {
+      width: 0;
+    }
+
+    .search-input-group {
+      width: 300px;
+    }
+  }
+}
+
+
+body {
+    background-color: rgb(226, 218, 219);
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    color: rgb(191, 172, 181);
+    font-family: 'Open Sans', sans-serif;
+
+h1 {
+    color: rgb(78, 74, 89);
+    font-family: 'Libre Baskerville', serif;
+}
+
+h2 {
+    color: rgb(78, 74, 89);
+    font-family: 'Libre Baskerville', serif;
+}
+h5{
+font-size: 60px
+}
