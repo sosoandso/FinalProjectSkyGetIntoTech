@@ -4,33 +4,46 @@
 {% block content %}
 <!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
 
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+</style>
+</head>
+
+<!--title code-->
+
+<body class="w3-light-grey">
+</body>
+      <header class="w3-container w3-center w3-padding-48 w3-white">
+     <h1 class="display-1" style="font-size: 90px; font: 'Open Sans'"><b> Local Events </b></h1>
 <br>
-<br>
-<div class="container-fluid">
- <div class="text-center">
-     <div class="display-1"<h1>Local Events</h1>
-</div>
-<br>
-<!--intro info code-->
-<br>
-    <p class="lead">
-We love supporting the local area and what better way than to advertise local events, festivals and concerts around the Sky Osterley campus. Check the date to make sure you can make it and then go onto the website to book your tickets!
-</p>
+ <h5 class="lead" style="color: rgb(191, 172, 181); font-size: 26px;">
+We love supporting the local area and what better way than to advertise local events, festivals and concerts around the Sky Osterley campus. <br> Check the date to make sure you can make it and then go onto the website to book your tickets!
+</h5>
+      </header>
+
+<!--middle section with recommendations-->
 
     <br>
-
-<br>
-    <br>
-    <section class="jumbotron text-center">
+    <section class="jumbotron text-center" style="background-color: rgb(185, 209, 223);">
         <div class="container">
-          <h1 class="jumbotron-heading"> Want to try something different ? </h1>
-          <p class="lead text-muted"> Below are upcoming events around campus. If you know something fun coming up recommend below</p>
-          <p>
-            <a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2">Recommend here</a>
+          <h1 class="jumbotron-heading">Want to try something different? </h1>
+          <p class="lead text" style="color: rgb(124, 114, 131);"> Below are upcoming events around campus. If you know something fun coming up recommend below </p>
+          <p><a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Recommend here</a>
               <a href="https://www.google.co.uk/maps" class="btn btn-secondary my-2"> How to get there? </a>
           </p>
         </div>
       </section>
+    </body>
+
 
 <!--    Explaination of the page  -->
     <div class="container-fluid bg-1 text-center">
@@ -38,26 +51,30 @@ We love supporting the local area and what better way than to advertise local ev
         And the calender for the events for the year around Osterly ! </p>
 
 <!--    Cards for events this month -->
-<div class="container-fluid">
-        <div class="card-deck">
+
 <!--                   Card 1 using jinja templating-->
 <div>
     {% if message %}
         <p>{{ message }}</p>
     {% else %}
         {% for item in localevents %}
-                <div id={item.id} class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ url_for('static', filename='images/'+item.event_image) }} " alt="{{ item.event_name }}">
-<!--                    <img class="card-img-top" src="static/images/{item.outdoor_image}" alt="Tree">-->
+    <div class="container">
+        <div class="row">
+            <div class="col w-100">
+                <div class="card-deck">
+                <div id={item.id} class="card" style="text-align: center;">
+                    <img class="card-img-top" class="responsive opacity" src="{{ url_for('static', filename='images/'+item.event_image) }} " alt="{{ item.event_name }}">
                     <div class="card-body">
-                      <h5 class="card-title">{{ item.event_name }}</h5>
-                        <a class="btn btn-primary" href="{{item.event_website}}" role="button">Click Here</a>
-                      <p class="card-text"></p>
+                      <h5 class="card-title" style="font-size: 40px;">{{ item.event_name }}</h5>
+                        <a class="btn btn-primary" href="{{item.event_website}}" role="button" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Click Here</a>
+                        <br>
+                        <br>
+                      <p class="card-text" style="font-weight: 900; font-size: 20px;"></p>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ item.event_category }}</li>
-                        <li class="list-group-item">Starts {{ item.event_start_date }} & Ends: {{ item.event_end_date }}</li>
-                        <li class="list-group-item">{{item.event_location}}</li>
-                        <li class="list-group-item">££ {{item.event_discount}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{ item.event_category }}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">Starts {{ item.event_start_date }} & Ends: {{ item.event_end_date }}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{item.event_location}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">££ {{item.event_discount}}</li>
                       </ul>
                     </div>
                 </div>

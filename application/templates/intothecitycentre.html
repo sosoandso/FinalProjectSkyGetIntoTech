@@ -4,29 +4,40 @@
 {% block content %}
 <!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
 
+<!--styling code-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+</style>
+</head>
 
 <!--title code-->
-<body>
-<br>
-<br>
-<div class="container-fluid">
- <div class="text-center">
-     <div class="display-1"<h1>City Centre</h1>
-</div>
-<br>
-<!--intro info code-->
-<br>
-    <p class="lead">
-Osterley doesn't exactly have London city centre on its doorstep but it might be easier than you think to make a trip into the Big Smoke. A direct train from Syon Lane (a short walk from Osterley campus) takes you to Putney, Waterloo and London Bridge in under an hour. Perhaps on your next visit to Osterley campus, you'd like to try one of these recommendations to enjoy an evening in London itself. </p>
 
+<body class="w3-light-grey">
+</body>
+      <header class="w3-container w3-center w3-padding-48 w3-white">
+     <h1 class="display-1" style="font-size: 90px; font: 'Open Sans'"><b> Into the City Centre </b></h1>
 <br>
+    <h5 class="lead" style="color: rgb(191, 172, 181); font-size: 26px;">
+Osterley doesn't exactly have London city centre on its doorstep but it might be easier than you think to make a trip into the Big Smoke. <br> A direct train from Syon Lane (a short walk from Osterley campus) takes you to Putney, Waterloo and London Bridge in under an hour. <br> Perhaps on your next visit to Osterley campus, you'd like to try one of these recommendations to enjoy an evening in London itself.
+</h5>
+      </header>
+
+<!--middle section with recommendations-->
+
     <br>
-    <section class="jumbotron text-center">
+    <section class="jumbotron text-center" style="background-color: rgb(185, 209, 223);">
         <div class="container">
-          <h1 class="jumbotron-heading">Feeling Hungry? </h1>
-          <p class="lead text-muted"> Below are some of our top recommendations of where to explore around the city centre. If you know somewhere good recommend below</p>
-          <p>
-            <a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2">Recommend here</a>
+          <h1 class="jumbotron-heading"> Know any other places in London? </h1>
+          <p class="lead text" style="color: rgb(124, 114, 131);"> Below are some of our top recommendations of where to go to London from Osterley Campus. If you know somewhere good recommend below</p>
+          <p><a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Recommend here</a>
               <a href="https://www.google.co.uk/maps" class="btn btn-secondary my-2"> How to get there? </a>
           </p>
         </div>
@@ -35,25 +46,30 @@ Osterley doesn't exactly have London city centre on its doorstep but it might be
 
 
 <!--    New layout with margins on the card deck-->
-    <div class="container-fluid">
-        <div class="card-deck">
+
             <!--                   Card 1 using jinja templating-->
 <div>
     {% if message %}
         <p>{{ message }}</p>
     {% else %}
         {% for item in cityevents %}
-                <div id={item.id} class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ url_for('static', filename='images/'+item.london_image) }} " alt="{{ item.outdoor_name }}">
+    <div class="container">
+        <div class="row">
+            <div class="col w-100">
+                <div class="card-deck">
+                <div id={item.id} class="card" style="text-align: center;">
+                    <img class="card-img-top" class="responsive opacity" src="{{ url_for('static', filename='images/'+item.london_image) }} " alt="{{ item.outdoor_name }}">
                     <div class="card-body">
-                      <h5 class="card-title">{{ item.london_name }}</h5>
-                        <a class="btn btn-primary" href="{{item.london_website}}" role="button">Click Here</a>
-                      <p class="card-text">{{item.london_description}}</p>
+                      <h5 class="card-title" style="font-size: 40px;">{{ item.london_name }}</h5>
+                        <a class="btn btn-primary" href="{{item.london_website}}" role="button" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Click Here</a>
+                        <br>
+                        <br>
+                      <p class="card-text" style="font-weight: 900; font-size: 20px;">{{item.london_description}}</p>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{item.london_category}}</li>
-                        <li class="list-group-item">{{ item.london_location }}</li>
-                        <li class="list-group-item">{{item.london_travel}}</li>
-                        <li class="list-group-item">{{item.london_affordability}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{item.london_category}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{ item.london_location }}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{item.london_travel}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{item.london_affordability}}</li>
                       </ul>
                     </div>
                 </div>

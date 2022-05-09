@@ -4,60 +4,50 @@
 {% block content %}
 <!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
 <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!--styling code-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-      .card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 3;
-    row-count:3;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 3;
-    row-count:3;
-  }
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
 
-.row{
-row-count:3;
+.thick{
+font-weight: bold;
 }
 
 </style>
-
-<section>
-<!--<h2> INTO THE CITY CENTRE table example!</h2>-->
-
+</head>
 
 <!--title code-->
 
+<body class="w3-light-grey">
+</body>
+      <header class="w3-container w3-center w3-padding-48 w3-white">
+     <h1 class="display-1" style="font-size: 90px; font: 'Open Sans'"><b>Explore the Outdoors </b></h1>
 <br>
-<br>
-<div class="container-fluid">
- <div class="text-center">
-     <div class="display-1"<h1>Explore Outdoors</h1>
-</div>
-<br>
-<!--intro info code-->
-<br>
-    <p class="lead">
-Whether you're wth your family, colleagues or on your own, getting outdoors after work is great for getting fresh air and going for a walk. Well you're in luck! There are plenty of beautiful parks and outdoor activities to pick from the selection below. </p>
+    <h5 class="lead" style="color: rgb(191, 172, 181); font-size: 26px">
+Whether you're wth your family, colleagues or on your own, getting outdoors after work is great for getting fresh air and going for a walk. <br> Well you're in luck! There are plenty of beautiful parks and outdoor activities to pick from the selection below.
+</h5>
+      </header>
 
-<br>
+<!--middle section with recommendations-->
+
     <br>
-    <section class="jumbotron text-center">
+    <section class="jumbotron text-center" style="background-color: rgb(185, 209, 223);">
         <div class="container">
           <h1 class="jumbotron-heading">Feeling Adventurous? </h1>
-          <p class="lead text-muted"> Below are some of our top recommendations of where to explore around Osterly Campus. If you know somewhere good recommend below</p>
-          <p>
-            <a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2">Recommend here</a>
+          <p class="lead text" style="color: rgb(124, 114, 131);">Below are some of our top recommendations of where to explore around Osterley Campus. If you know somewhere good recommend below!</p>
+          <p><a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Recommend here</a>
               <a href="https://www.google.co.uk/maps" class="btn btn-secondary my-2"> How to get there? </a>
           </p>
         </div>
       </section>
+    </body>
 
-
-
-<!--    New layout with margins on the card deck-->
-<!--    <div class="container-fluid" >-->
-<!--        <div class="card-deck">-->
 
 <!--       Card 1 -->
 <div>
@@ -66,32 +56,28 @@ Whether you're wth your family, colleagues or on your own, getting outdoors afte
     {% else %}
 
     {% for item in outdoors %}
-<!--        <div class="row">-->
-<!--            <div class="card-columns">-->
-<!--             <div class="row row-cols-1 row-cols-md-2 g-4">-->
-<!--             <div class="col">-->
-<!--    <div class="card">-->
     <div class="container">
         <div class="row">
             <div class="col w-100">
-<!--    <div class="container">-->
-<!--        <div class="row-sm">-->
-<!--             <div class="col-sm">-->
-                 <div id={item.id} class="card">
+                <div class="card-deck">
+                 <div id={item.id} class="card" style="text-align: center;">
                     <img class="card-img-top" class="responsive opacity" src="{{ url_for('static', filename='images/'+item.outdoor_image) }} " alt="{{ item.outdoor_name }}">
                     <div class="card-body">
-                      <h5 class="card-title">{{ item.outdoor_name }}</h5>
-                        <a class="btn btn-primary" href="{{ item.outdoor_website }}" role="button">Click Here</a>
-                      <p class="card-text">{{ item.outdoor_descriptions }}</p>
+                      <h5 class="card-title" style="font-size: 40px;">{{ item.outdoor_name }}</h5>
+                        <a class="btn btn-primary" href="{{ item.outdoor_website }}" role="button" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Click Here</a>
+                        <br>
+                        <br>
+                      <p class="card-text" style="font-weight: 900; font-size: 20px;">{{ item.outdoor_descriptions }}</p>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{item.outdoor_affordability}}</li>
-                        <li class="list-group-item">{{item.outdoor_address}}</li>
-                        <li class="list-group-item">{{item.outdoor_discount}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{item.outdoor_affordability}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{item.outdoor_address}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;">{{item.outdoor_discount}}</li>
                       </ul>
                     </div>
                 </div>
                 </div>
         </div>
+            <br><br>
 
      {% endfor %}
     {% endif %}

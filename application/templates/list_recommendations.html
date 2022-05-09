@@ -5,47 +5,46 @@
 {% block content %}
 <!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
 
-<!--BELO NOT NEEDED ANYMORE: NOW LOOPING THROUGH CARD DECK -->
-<!--<section class="text-center">-->
-<!--<h2> YOUR RECOMMENDATIONS! </h2>-->
+<!--styling code-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+</style>
+</head>
 
+<!--title code-->
 
-<!--&lt;!&ndash;we'll have to display a pic with that item too...?&ndash;&gt;-->
-<!--<div>-->
-<!--{% for item in recommendations %}-->
-<!--   <p> {{item.id}} {{item.recommendation_name}} {{item.recommendation_location}}-->
-<!--       {{item.recommendation_category}} {{item.recommendation_website}}</p>-->
-<!--{% endfor %}-->
-<!--    <br>-->
-<!--    {{ message }}-->
-<!--</div>-->
-<!--</section>-->
-
-
-<!--(jinja syntax working on website:)-->
-
+<body class="w3-light-grey">
+</body>
+      <header class="w3-container w3-center w3-padding-48 w3-white">
+     <h1 class="display-1" style="font-size: 90px; font: 'Open Sans'"><b> Your Recommendations! </b></h1>
 <br>
-<br>
-<div class="container-fluid">
- <div class="text-center">
-     <div class="display-1"<h3>Your Recommendations!</h3>
-</div>
-<br>
-<!--intro info code-->
+    <h5 class="lead" style="color: rgb(191, 172, 181); font-size: 26px;">
+Here's the list of all the recommendations that you have submitted to our website! Explore your colleagues' favourtie places to visit with the recommendations below!
+</h5>
+      </header>
 
-<br>
+<!--middle section with recommendations-->
+
     <br>
-    <section class="jumbotron text-center">
+    <section class="jumbotron text-center" style="background-color: rgb(185, 209, 223);">
         <div class="container">
-          <h1 class="jumbotron-heading"> Want to try something different ? </h1>
-          <p class="lead text-muted"> Below are your recommendations around campus. If you know something fun coming up,
+          <h1 class="jumbotron-heading">Want to try something different? </h1>
+          <p class="lead text" style="color: rgb(124, 114, 131);">Below are your recommendations around campus. If you know something fun coming up,
               don't keep it to yourself; add below!</p>
-          <p>
-            <a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2">Recommend here</a>
+          <p><a href="http://127.0.0.1:5000/recommendations" class="btn btn-primary my-2" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Recommend here</a>
               <a href="https://www.google.co.uk/maps" class="btn btn-secondary my-2"> How to get there? </a>
           </p>
         </div>
       </section>
+    </body>
 
 <!--    Explaination of the page  -->
     <div class="container-fluid bg-1 text-center">
@@ -53,25 +52,30 @@
         And the calender for the events for the year around Osterley ! </p>
 
 <!--    Cards for events this month -->
-<div class="container-fluid">
-        <div class="card-deck">
+
 <!--                   Card 1 using jinja templating-->
 <div>
     {% if message %}
         <p>{{ message }}</p>
     {% else %}
         {% for item in recommendations %}
-                <div id={item.id} class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="static/images/roses.jpeg" alt="Tree">
+     <div class="container">
+        <div class="row">
+            <div class="col w-100">
+                <div class="card-deck">
+                <div id={item.id} class="card" style="text-align: center;">
+                    <img class="card-img-top" class="responsive opacity" src="static/images/recommendation.jpeg" alt="Recommendation">
                     <div class="card-body">
-                      <h5 class="card-title">{{ item.recommendation_name }}</h5>
-                        <a class="btn btn-primary" href="{{item.recommendation_website}}" role="button">Click Here</a>
-                      <p class="card-text">{{item.recommendation_description}}</p>
+                      <h5 class="card-title" style="font-size: 40px;">{{ item.recommendation_name }}</h5>
+                        <a class="btn btn-primary" href="{{item.recommendation_website}}" role="button" style="background-color: rgb(76, 132, 169); border-color: rgb(76, 132, 169)";>Click Here</a>
+                        <br>
+                        <br>
+                      <p class="card-text" style="font-weight: 900; font-size: 20px;">{{item.recommendation_description}}</p>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ item.recommendation_category }}</li>
-                        <li class="list-group-item">{{item.recommendation_location}}</li>
-                        <li class="list-group-item">Recommended by: {{item.recommendation_author}}</li>
-                        <li class="list-group-item">££ {{item.recommendation_discount}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;>{{ item.recommendation_category }}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;>{{item.recommendation_location}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;>Recommended by: {{item.recommendation_author}}</li>
+                        <li class="list-group-item" style="font-weight: bold; font-size: 18px;>££ {{item.recommendation_discount}}</li>
                       </ul>
                     </div>
                 </div>
