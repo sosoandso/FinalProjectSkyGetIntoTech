@@ -188,14 +188,9 @@ select * from into_london;
 select * from recommendations;
 
 
-
--- need to update id 4 to a non duplicated event/place on recommendations table (same as id 1)
--- also add discounts...it's coming up as null on website (amended Rform class to stringfield..) 
-
 update recommendations set recommendation_website = "https://cookingwithmonisha.com/" where id=5;
 update recommendations set recommendation_website = "https://www.nationaltrust.org.uk/osterley-park-and-house/features/osterley-national-trust-cafe/" where id=1;
 update recommendations set recommendation_website = "https://www.nationaltrust.org.uk/osterley-park-and-house/features/osterley-national-trust-cafe/" where id=4;
-
 
 
 update restaurants set restaurant_image = "/Users/alicetildsley/GetIntoTech_Group3_FinalProject/application/static/images/tigerlily.jpeg" where id=1;
@@ -241,4 +236,3 @@ update into_london set lodnon_image = "/Users/alicetildsley/GetIntoTech_Group3_F
 update into_london set lodnon_image = "/Users/alicetildsley/GetIntoTech_Group3_FinalProject/application/static/images/.jpeg" where id=8;
 update into_london set lodnon_image = "/Users/alicetildsley/GetIntoTech_Group3_FinalProject/application/static/images/.jpeg" where id=9;
 update into_london set lodnon_image = "/Users/alicetildsley/GetIntoTech_Group3_FinalProject/application/static/images/.jpeg" where id=10;
-
