@@ -24,16 +24,14 @@ print(pymysql.__version__)
 restaurant = session.query(Restaurants).filter_by(id=2).first()
 
 print(restaurant.restaurant_name, restaurant.restaurant_address, restaurant.restaurant_location,
-      restaurant.restaurant_website, restaurant.restaurant_description, restaurant.restaurant_cuisine_type,
+      restaurant.restaurant_website, restaurant.restaurant_image, restaurant.restaurant_description, restaurant.restaurant_cuisine_type,
       restaurant.restaurant_affordability)
-#    # restaurant_image (to be added between restaurant_website and restaurant_description)
 
 
 restaurant = session.query(Restaurants).filter_by(restaurant_name="Tiger Lily").first()
 print(restaurant.restaurant_name, restaurant.restaurant_address, restaurant.restaurant_location,
-      restaurant.restaurant_website, restaurant.restaurant_description, restaurant.restaurant_cuisine_type,
+      restaurant.restaurant_website, restaurant.restaurant_image, restaurant.restaurant_description, restaurant.restaurant_cuisine_type,
       restaurant.restaurant_affordability)
-#     # restaurant_image (to be added between restaurant_website and restaurant_description)
 
 
 recommendation = session.query(Recommendations).filter_by(recommendations_id=1).first()
