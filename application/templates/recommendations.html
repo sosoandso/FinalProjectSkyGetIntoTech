@@ -4,8 +4,35 @@
 {% block content %}
 <!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
 
+<!--INPUT YOUR HTML CODE FOR THIS PAGE HERE!-->
 
-<!--code showing on website atm: -->
+<!--recommendation form error flashed messages-->
+{% with messages = get_flashed_messages(with_categories =true) %}
+{% if messages %}
+    {% for category, message in messages %}
+    {% if category == "error" %}
+<!--below will show the flash feature-->
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+    <!--below will display the message:-->
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+    <!--        span displays button in a fancier way-->
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% else %}
+<!--below for other message: success variable-->
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
 
 <!--styling code-->
 <head>
