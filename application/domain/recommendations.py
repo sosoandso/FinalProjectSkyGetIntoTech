@@ -42,20 +42,9 @@ class Recommendations(db.Model):
     recommendation_location = db.Column(db.String(100), nullable=False)
     recommendation_website = db.Column(db.String(1000), nullable=False)
     recommendation_category = db.Column(db.String(100))
-    # recommendation_category = db.Column(db.String(100), nullable=False)
     recommendation_discount = db.Column(db.Integer, nullable=True)
     recommendation_author = db.Column(db.String(100), nullable=True)
 
-    # recommendation_category = db.Column(db.UserCategory(), nullable=False)  #changing the db.String(100)
-    # to db.UserCategory()  --> checked and returning:
-    # AttributeError: 'SQLAlchemy' object has no attribute 'UserCategory'
-#     is there a correct attribute??
-
-
-# Qs:
-# we don't have a foreign key for recommendations inputted right?
-# recommendation_category = db.Column(db.String(100), nullable=False)  - need to amend to ENUM..??? showing ENUM in
-# our sql database
 
 
 # database model = an object/ blueprint in which our database will be stored

@@ -1,3 +1,5 @@
+# PAGE NO LONGER NEEDED
+
 from application import db
 from dataclasses import dataclass
 from enum import Enum
